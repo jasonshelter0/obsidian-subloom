@@ -1,0 +1,16 @@
+{
+  "name": "obsidian-subloom",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "typecheck": "tsc --noEmit",
+    "build": "npm run typecheck && node esbuild.config.mjs",
+    "test": "node esbuild.test.mjs && node --test build-tests/*.test.cjs"
+  },
+  "devDependencies": {
+    "@types/node": "^24.0.0",
+    "esbuild": "^0.25.0",
+    "obsidian": "^1.12.3",
+    "typescript": "^5.9.0"
+  }
+}

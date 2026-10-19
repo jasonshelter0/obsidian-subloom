@@ -1,0 +1,9 @@
+{
+  "id": "subloom",
+  "name": "Subloom",
+  "version": "0.1.0",
+  "minAppVersion": "1.12.0",
+  "description": "Markdown-first subscription forecasts, payment verification, and reminders.",
+  "author": "Jason Shelter",
+  "isDesktopOnly": false
+}

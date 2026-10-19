@@ -1,0 +1,7 @@
+# Data schema
+
+A subscription is a Markdown note with `record_type: subscription` or an exact `subscription` / `subscription/...` tag. Required for forecasts: `subscription_start` (`YYYY-MM-DD`) and `billing_cycle` (`monthly`, `yearly`, or `weekly`). `billing_interval` defaults to 1. `billing_anchor_day` defaults to the start day. `amount` is an expected charge, `currency` its unconverted ISO code. `auto_renew` is an intent, never proof of payment. `subscription_lifecycle` is `active`, `paused`, `cancelled`, or `archived`; legacy `subscription_status` is read. `payment_method` is a quoted wikilink or note path. `remind_before` defaults to 3 days.
+
+`last_payment_date` means a verified successful payment. `paid_through` is **exclusive**: coverage through 2026-11-29 ends at the start of that local calendar day. If absent, entitlement is unknown. The plugin never infers payment or entitlement from an auto-renew forecast. `verification_status: failed` or `waived` may be set manually; otherwise the latest scheduled charge is confirmed only when a verified payment date falls in that billing cycle. This is a simple model and does not encode grace periods.
+
+Payment methods use `record_type: payment_method`; supported display fields are `institution`, `payment_kind`, `currency`, `card_last4`, `card_expiry_month` and `payment_method_status`. Never store full card numbers, CVV, PIN, passwords or bank credentials. Existing `price` is read as a legacy amount alias, but is not rewritten. Legacy `expires` is not treated as verified entitlement.
